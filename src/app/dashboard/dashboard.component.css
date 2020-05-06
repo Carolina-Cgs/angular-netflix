@@ -1,0 +1,13 @@
+.container {background-color: #ccc; border-radius: 4px;}
+.link{padding: 14px;}
+.link a{font-size:20px; text-decoration: none;
+    margin: 4px;
+    padding: 4px;
+    border-radius: 4px;
+    border: solid 2px;}
+h3{text-align: center;
+    font-size: 40px;
+    font-variant: petite-caps;
+}
+
+h4, h6, p{text-align: center;}
