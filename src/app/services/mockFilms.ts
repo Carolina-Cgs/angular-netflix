@@ -15,6 +15,8 @@ export const FILMS: Film[] = [
         cast: [ACTORS[0]],
         genres: [GENRES[5]],
         tags: "crime, VM18",
+        coverUrl: "https://assets.nflxext.com/us/boxshots/hd1080/880640.jpg",
+        created_by: 0,
     },
     {
         id: 22,
@@ -27,6 +29,8 @@ export const FILMS: Film[] = [
         cast: [ACTORS[1]],
         genres: [GENRES[4]],
         tags: "distopico, muto",
+        coverUrl: "https://assets.nflxext.com/us/boxshots/hd1080/60026474.jpg",
+        created_by: 0,
     },
     {
         id: 33,
@@ -39,7 +43,8 @@ export const FILMS: Film[] = [
         cast: [ACTORS[2]],
         genres: [GENRES[2]],
         tags: "boxe, Oscar",
-
+        coverUrl: "https://occ-0-299-300.1.nflxso.net/art/c8dd6/4a0ac9ebcac3131888c50277f5b08f10028c8dd6.jpg",
+        created_by: 0,
     },
 
     {
@@ -53,5 +58,7 @@ export const FILMS: Film[] = [
         cast: [ACTORS[3]],
         genres: [GENRES[6]],
         tags: "triciclo, gemelle",
+        coverUrl: "https://assets.nflxext.com/us/boxshots/hd1080/959008.jpg",
+        created_by: 0,
     }
 ];

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,16 +9,21 @@ import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
 export class UserService {
   loggedUser: User;
 
-  constructor(private localStorage:LocalStorageService) { }
+  constructor(private http: HttpClient,
+    private localStorage:LocalStorageService) { }
 
-  login(): void {
-    this.loggedUser = {
-      id: 1,
-      firstname: 'Carolina',
-      lastname: 'Cugusi',
-      favoritesFilm: []
-    }
-    this.localStorage.store('loggedUser', this.loggedUser);
+  login(username: string, password: string): boolean {
+
+    this.http.post<User>('http://netflix.cristiancarrino.com/user/login.php', {
+      "username": username,
+      "password": password
+    }).subscribe(response => {
+      console.log(response);
+      this.loggedUser = response
+      this.localStorage.store('loggedUser', this.loggedUser);
+    })
+    
+    return this.loggedUser != null;
   }
 
   logout(): void {
@@ -27,7 +33,6 @@ export class UserService {
 
   getLoggedUser(): void {
     this.loggedUser = this.localStorage.retrieve('loggedUser');
-
   }
 
   

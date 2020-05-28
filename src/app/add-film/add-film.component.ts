@@ -21,8 +21,8 @@ export class AddFilmComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.actors = this.actorService.getActors();
-    this.genres = this.genreService.getGenres();
+    this.actorService.getActors().subscribe(result => this.actors = result);
+    this.genreService.getGenres().subscribe(response => this.genres = response);
   }
 
 }

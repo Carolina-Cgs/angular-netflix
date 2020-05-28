@@ -1,0 +1,42 @@
+<div>
+    <div id="header">
+            <div class="title">
+            <h1>NETFLIX</h1>
+            </div>
+        
+        <div class="log">
+            <div *ngIf="!userService.loggedUser" class="div-login">
+                
+                <button (click)="showLoginForm()" class="btn btn-login" type="button" >Login</button>
+                <div [ngClass]="loginForm ? 'login-form b' : 'login-form n'">
+                    <label>Username</label>
+                    <input type="text" [(ngModel)]="username">
+                    <label>Password</label>
+                    <input type="password" [(ngModel)]="password">
+                    <button (click)="login()">Login</button>
+                </div>
+            </div>
+            <div *ngIf="userService.loggedUser">
+                {{ userService.loggedUser.firstname }}<br>
+                <button (click)="logout()" class="btn">Logout</button>
+            </div>
+        </div>
+
+<!--..NAVBAR ..--> 
+<a id="hamburger" class="hamburger" (click)="showMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+</a>
+        <div [ngClass]="elVisible ? 'navbar b-sm' : 'navbar n-sm'">
+            <ul class="nav">
+                <li class="item"><a routerLink="/dashboard">Home</a></li>
+                <li class="item"><a routerLink="/films">Films</a></li>
+                <li class="item"><a routerLink="/actors">Attori</a></li>
+                <li class="item"><a routerLink="/genres">Generi</a></li>
+            </ul>
+        </div>
+        
+        
+    </div>
+</div>

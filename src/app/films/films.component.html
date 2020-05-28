@@ -1,11 +1,6 @@
-<div class="films-container">
-    <div>
-        <a routerLink="/dashboard">Home </a>-
-        <a routerLink="/films/add"> Aggiungi film </a>-
-        <a routerLink="/films/edit"> Modifica film </a>
-    </div>
+<div class="container">
 
-    <input type="text" placeholder="Cerca">
+    <input type="text" placeholder="Cerca" (input)="search($event)">
 
     <div>
         <h3>Films disponibili</h3>
@@ -14,7 +9,7 @@
     <div *ngFor="let film of films" (click)="film.showMore=!film.showMore" class="film-list">
         <div>
             <div>Titolo: {{ film.title }} </div>
-            <div> Voto: {{ film.stars }}</div>
+            <div> Voto: {{ film.stars }} <app-stars (voteChanged)="setVote(film, $event)" [vote]="film.stars"></app-stars> </div>
             <div>Durata: {{ film.duration }}</div>
         </div>  
         <div *ngIf="film.showMore">

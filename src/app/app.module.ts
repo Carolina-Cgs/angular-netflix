@@ -15,6 +15,11 @@ import { EditGenreComponent } from './edit-genre/edit-genre.component';
 import { FilmsComponent } from './films/films.component';
 import { GenresComponent } from './genres/genres.component';
 import { NgxWebstorageModule } from 'ngx-webstorage';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { StarsComponent } from './stars/stars.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './navbar/navbar.component';
+
 
 @NgModule({
   declarations: [
@@ -28,13 +33,17 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     EditFilmComponent,
     EditGenreComponent,
     FilmsComponent,
-    GenresComponent
+    GenresComponent,
+    StarsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxWebstorageModule.forRoot(),
-    FormsModule
+    FormsModule,
+    FontAwesomeModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

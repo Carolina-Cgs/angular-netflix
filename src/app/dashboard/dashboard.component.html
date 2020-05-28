@@ -1,9 +1,4 @@
 <div class="container">
-    <div class="link">
-        <a routerLink="/films">Films</a>
-        <a routerLink="/actors">Attori</a>
-        <a routerLink="/genres">Generi</a>
-    </div>
 
     <div>
         <h3>Ultimi 4 Films</h3>
@@ -11,7 +6,7 @@
     <div class="row row-cols-1 row-cols-md-4">
         <div class="col mb-3" *ngFor="let film of lastFilms">
             <div class="card">
-                <img src="https://lh3.googleusercontent.com/TBRwjS_qfJCSj1m7zZB93FnpJM5fSpMA_wUlFDLxWAb45T9RmwBvQd5cWR5viJJOhkI" class="card-img-top" alt="...">
+                <img src="{{ film.coverUrl }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h4 class="card-title">{{ film.title }}</h4>
                     <h6 class="card-title">{{ film.director }}</h6>
@@ -21,12 +16,12 @@
         </div>
     </div>
     <div>
-        <h3>Top 3 Films</h3>
+        <h3>Top 4 Films</h3>
     </div>
-    <div class="row row-cols-1 row-cols-md-3">
+    <div class="row row-cols-1 row-cols-md-4">
         <div class="col mb-3" *ngFor="let film of topFilms">
             <div class="card">
-                <img src="https://lh3.googleusercontent.com/TBRwjS_qfJCSj1m7zZB93FnpJM5fSpMA_wUlFDLxWAb45T9RmwBvQd5cWR5viJJOhkI" class="card-img-top" alt="...">
+              <img src="{{ film.coverUrl }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h4 class="card-title">{{ film.title }}</h4>
                     <h6 class="card-title">{{ film.stars }} stelle</h6>
@@ -34,13 +29,6 @@
             </div>
         </div>
     </div>
-    
 
-    <div *ngIf="userService.loggedUser">
-        <button (click)="userService.login()">LOGIN</button>
-    </div>
-
-    <div *ngIf="userService.loggedUser">
-    Benvenuto, {{ userService.loggedUser.firstname }} <button (click)="userService.logout()">LOGOUT</button>
-    </div>
+   
 </div>

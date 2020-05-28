@@ -3,6 +3,7 @@ import { Genre } from '../models/genre';
 import { GENRES } from './mockGenres';
 import { Observable, of } from 'rxjs';
 import {LocalStorageService, SessionStorageService} from 'ngx-webstorage';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -15,11 +16,18 @@ export class GenreService {
     name: ''
   }
 
-  constructor(private localStorage:LocalStorageService) { }
+  constructor(private http: HttpClient, private localStorage: LocalStorageService) { }
 
-  getGenres(): Genre[] {
-    this.genres = this.localStorage.retrieve('genres') || GENRES;
-    return this.genres;
+  getGenres(): Observable<Genre[]> {
+    if (this.genres) {
+      return of(this.genres);
+    } else {
+      const result = this.http.get<Genre[]>('http://netflix.cristiancarrino.com/genre/read.php');
+      result.subscribe(
+        response => this.genres = response
+      )
+      return result;
+    }
   }
 
   addGenre(genre: Genre) {

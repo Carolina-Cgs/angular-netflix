@@ -3,6 +3,7 @@ import { Film } from '../models/film';
 import { FilmService } from '../services/film.service';
 import { Actor } from '../models/actor';
 import { Genre } from '../models/genre';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,12 +13,15 @@ import { Genre } from '../models/genre';
 })
 export class FilmsComponent implements OnInit {
   films: Film[];
-  
+  timeout;
 
-  constructor(private filmService: FilmService) { }
+  constructor(private router: Router, private filmService: FilmService) { }
 
   ngOnInit(): void {
-    this.films = this.filmService.getFilms();
+    this.filmService.getFilms().subscribe(response => {
+      this.films = response
+    });
+   // this.films = this.filmService.getFilms();
   }
 
   getCastList(cast: Actor[]) {
@@ -30,6 +34,27 @@ export class FilmsComponent implements OnInit {
   }
   selectThisFilm(film: Film) {
     this.filmService.selectedFilm = film;
+    this.router.navigate(['/films/edit']);
+  }
+
+  search(event) {
+    let test = event.target.value;
+    if(this.timeout) {
+      clearTimeout(this.timeout);
+    }
+
+    let scope=this;
+    this.timeout = setTimeout(function() {
+      if(test.length > 2) {
+        scope.filmService.getFilms().subscribe((films) => scope.films = films.filter(x =>x.title.toLowerCase().indexOf(test.toLowerCase()) > -1));
+      } else {
+        scope.filmService.getFilms().subscribe((films) => scope.films = films);
+      }
+    }, 300);
+  }
+
+  setVote(film: Film, vote: number) {
+    film.stars=vote;
   }
 
 

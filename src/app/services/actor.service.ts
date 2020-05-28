@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Actor } from '../models/actor';
 import { ACTORS } from './mockActors';
 import {LocalStorageService, SessionStorageService} from 'ngx-webstorage';
+import { of, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -16,11 +18,18 @@ export class ActorService {
     lastname: '',
   }
 
-  constructor(private localStorage:LocalStorageService) { }
+  constructor(private http: HttpClient, private localStorage:LocalStorageService) { }
 
-  getActors(): Actor[] {
-    this.actors = this.localStorage.retrieve('actors') || ACTORS;
-    return this.actors;
+  getActors(): Observable<Actor[]> {
+    if (this.actors) {
+      return of(this.actors);
+    } else {
+      const result = this.http.get<Actor[]>('http://netflix.cristiancarrino.com/actor/read.php');
+      result.subscribe(
+        response => this.actors = response
+      )
+      return result;
+    }
   }
 
   addActor(actor: Actor) {
