@@ -8,18 +8,44 @@
 	box-shadow: 0px 4px 20px 1px #520000;
     z-index: 100;
 }
-.log{float: right;
-color: #fff;
-padding-right: 100px;
-padding-top: 10px;
-}
+
 
 .title{display: inline-block;
 	padding-top: 16px;
 padding-left: 16px;}
 
 .title h1{color: red;
+	text-shadow: 6px 0px 12px #ff0404;
 }
+
+.log{float: right;
+	color: #fff;
+	padding-right: 100px;
+	padding-top: 20px;
+	}
+
+.div-login {display: unset;}
+
+.login-form {position: absolute;
+	width: 182px;
+	top: 55px;
+	right: 15px;
+	background-color: #e0d5d5;
+	overflow: auto;
+	border-radius: 10px;
+	border: solid 1px;
+	z-index: 101;}
+
+.login-form input, label {width: 160px;
+	margin: 0 10px;}
+
+.btn-login-open-form {float: right;}
+.btn-login {margin: 5px 60px;
+	color: #ff3a3a;
+    border-radius: 10px;
+    background-color: #171717}
+
+
 
 .navbar {
 	float:right;
@@ -58,16 +84,6 @@ padding-left: 16px;}
 	color: black;
 }
 
-.div-login {display: unset;}
-.login-form {position: absolute;
-	width: min-content;
-	top: 50px;
-	right: 15px;
-	background-color: teal;
-	overflow: auto;
-	}
-
-.btn-login {float: right;}
 
 .b{display: block;}
 .n{display: none;}

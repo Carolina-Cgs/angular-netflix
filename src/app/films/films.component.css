@@ -1,2 +1,9 @@
 .container {background-color: #ececec; border-radius: 4px; padding-top:90px; color: #000;}
+
+h3{text-align: center;
+    font-size: 40px;
+    font-variant: petite-caps;
+    text-shadow:4px -3px 4px #969696;;
+}
+
 .film-list{margin-bottom: 20px;}
