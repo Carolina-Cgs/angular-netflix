@@ -1,2 +1,3 @@
-.edit-container{color: #fff}
+.container {background-color: #ececec; border-radius: 4px; padding-top:90px; color: #000;}
+
 .input, .routerlink{margin-bottom: 20px;}

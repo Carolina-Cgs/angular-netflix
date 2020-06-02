@@ -35,7 +35,9 @@ export class FilmService {
     //this.films = this.localStorage.retrieve('films') || FILMS;
     //return this.films;
     const result = this.http.get<Film[]>('http://netflix.cristiancarrino.com/film/read.php');
-    result.subscribe(films => this.films = films);
+    result.subscribe(films => {
+      this.films = films;
+    });
     return result;
   }
 

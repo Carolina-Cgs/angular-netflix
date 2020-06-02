@@ -3,7 +3,23 @@
 h3{text-align: center;
     font-size: 40px;
     font-variant: petite-caps;
-    text-shadow:4px -3px 4px #969696;;
+    text-shadow:4px -3px 4px #969696;
+    margin-bottom: 20px;
+}
+.h-100{box-shadow: -6px 9px 15px 0px #888;}
+.card-visible{padding-bottom: 0;}
+.card-dropdown{padding-top: 0;}
+
+.img-container {    
+    position: relative;
+    padding-bottom: 150%;
+    background-position: center center;
+    background-size: cover;
 }
 
-.film-list{margin-bottom: 20px;}
+.img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;}
+
+

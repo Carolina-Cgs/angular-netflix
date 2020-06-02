@@ -21,7 +21,7 @@
     <div class="row row-cols-1 row-cols-md-4">
         <div class="col mb-3" *ngFor="let film of topFilms">
             <div class="card h-100">
-              <img src="{{ film.coverUrl }}" class="card-img-top" alt="...">
+                <div class="img-container" [ngStyle]="{'background-image': 'url(' + (film.coverUrl || 'https://permobil.com.au/wp-content/uploads/2017/08/no-image-placeholder-2.jpg') + ')'}"> </div>
                 <div class="card-body">
                     <h4 class="card-title">{{ film.title }}</h4>
                     <div class="card-text stars-box">Voto degli utenti:<br><app-stars [vote]="film.stars"></app-stars></div>
