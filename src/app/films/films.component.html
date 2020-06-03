@@ -5,24 +5,28 @@
     <div>
         <h3>Films disponibili</h3>
     </div>
-    <div class="row row-cols-1 row-cols-md-5">
-        <div *ngFor="let film of films" (click)="film.showMore=!film.showMore"  class="col mb-3">
+    <div class="row row-cols-1 row-cols-md-4">
+        <div *ngFor="let film of films" class="col mb-3">
             <div class="card h-100">
+                <div class="icons"><fa-icon [icon]="faEdit" class="icon-edit" data-toggle="tooltip" title="Modifica" (click)="selectThisFilm(film)"></fa-icon>
+                                   <fa-icon [icon]="faTrashAlt" class="icon-trash" data-toggle="tooltip" title="Elimina"></fa-icon>
+                </div>
                 <div class="img-container" [ngStyle]="{'background-image': 'url(' + (film.coverUrl || 'https://permobil.com.au/wp-content/uploads/2017/08/no-image-placeholder-2.jpg') + ')'}"> </div>
                 <div class="card-body card-visible">
-                    <div>Titolo: {{ film.title }} </div>
-                    <div> Voto: {{ film.stars }} <app-stars (voteChanged)="setVote(film, $event)" [vote]="film.stars"></app-stars> </div>
-                    <div>Durata: {{ film.duration }}</div>
-                </div>  
+                    <div class="card-text stars-box"> Voto: {{ film.stars }} <app-stars (voteChanged)="setVote(film, $event)" [vote]="film.stars"></app-stars> </div>
+                    <hr>
+                    <h5 class="card-title">{{ film.title }}</h5>     
+                    <h6 class="card-title">{{ film.director }}</h6>
+                    <div class="btn-icon-plus"><fa-icon [icon]="faPlusCircle" (click)="film.showMore=!film.showMore" class="icon-plus" data-toggle="tooltip" title="Altre info"></fa-icon></div>
+                </div>
+                
                 <div *ngIf="film.showMore" class="card-body card-dropdown">
-                    <div>Attori: {{ getCastList (film.cast) }}</div>
-                    <div>Anno di produzione: {{ film.releaseYear }}</div>
-                    <div>Genere: {{getGenreList (film.genres) }}</div>
-                    <div>Tags: {{ film.tags }}</div>
+                    <div class="moreInfo"><h6>Attori:</h6> <p>{{ getCastList (film.cast) }}</p></div>
+                    <div class="moreInfo"><h6>Anno di produzione:</h6> <p>{{ film.releaseYear || '-' }}</p></div>
+                    <div class="moreInfo"><h6>Tags:</h6> <p>{{ film.tags || '-' }}</p></div>
                 </div>
-                <div>
-                    <button (click)="selectThisFilm(film)">Modifica</button>
-                </div>
+                <div class="card-footer"><p class="card-text"><small class="text-muted">{{getGenreList (film.genres) }}</small></p>
+                <div class="card-footer"><p class="card-text">Durata: {{ film.duration }}</p></div>
             </div>
         </div>
     </div>

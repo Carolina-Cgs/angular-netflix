@@ -4,6 +4,7 @@ import { FilmService } from '../services/film.service';
 import { Actor } from '../models/actor';
 import { Genre } from '../models/genre';
 import { Router } from '@angular/router';
+import { faEdit, faTrashAlt, faPlusCircle} from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -12,6 +13,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./films.component.css']
 })
 export class FilmsComponent implements OnInit {
+  faEdit = faEdit;
+  faTrashAlt = faTrashAlt;
+  faPlusCircle = faPlusCircle;
+
   films: Film[];
   timeout;
 
