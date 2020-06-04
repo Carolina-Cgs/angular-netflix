@@ -21,6 +21,7 @@
                 </div>
                 
                 <div *ngIf="film.showMore" class="card-body card-dropdown">
+                    <div class="moreInfo"><h6>Trama</h6><p>{{ film.description }}</p></div>
                     <div class="moreInfo"><h6>Attori:</h6> <p>{{ getCastList (film.cast) }}</p></div>
                     <div class="moreInfo"><h6>Anno di produzione:</h6> <p>{{ film.releaseYear || '-' }}</p></div>
                     <div class="moreInfo"><h6>Tags:</h6> <p>{{ film.tags || '-' }}</p></div>

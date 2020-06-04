@@ -1,62 +1,54 @@
 <div class="container">
-    <div class="routerlink">
-    <a routerLink="/films">Films </a>
+    <div>
+        <h3>Modifica film</h3>
     </div>
     <div>
-        <div class="input">
-            <label>Titolo</label>
-            <div>
-                <input type="text" placeholder="Inserisci titolo" [(ngModel)]="filmService.selectedFilm.title">
-            </div>
+        <div class="form">
+            <h5><label>Id </label></h5>
+            <input type="text" placeholder="Id" [(ngModel)]="filmService.selectedFilm.id" readonly>
+        </div>    
+        <div class="form">
+            <h5><label>Titolo</label></h5>
+            <input type="text" placeholder="Inserisci titolo" [(ngModel)]="filmService.selectedFilm.title">
         </div>
-        <div class="input"> 
-            <label>Trama</label>
-            <div>
-                <input type="text" placeholder="Inserisci trama" [(ngModel)]="filmService.selectedFilm.description">
-            </div>
+        <div class="form">
+            <h5><label>Regista </label></h5>
+            <input type="text" placeholder="Inserisci regista" [(ngModel)]="filmService.selectedFilm.director">
         </div>
-        <div class="input">
-            <label>Regista</label>
-            <div>
-                <input type="text" placeholder="Inserisci regista" [(ngModel)]="filmService.selectedFilm.director">
-            </div>
+        <div class="form"> 
+            <h5><label>Trama </label></h5>
+            <textarea rows="4" placeholder="Inserisci trama" [(ngModel)]="filmService.selectedFilm.description"></textarea>
+        </div>       
+        <div class="form"> 
+            <h5><label>Durata </label></h5>
+            <input type="text" placeholder="Inserisci durata" [(ngModel)]="filmService.selectedFilm.duration">
         </div>
-        <div class="input"> 
-            <label>Durata</label>
-            <div>
-                <input type="text" placeholder="Inserisci durata" [(ngModel)]="filmService.selectedFilm.duration">
-            </div>
+        <div class="form">
+            <h5><label>Anno di produzione</label></h5>
+            <input type="number" placeholder="Inserisci anno" [(ngModel)]="filmService.selectedFilm.releaseYear">
         </div>
-        <div class="input">
-            <label>Anno di produzione</label>
-            <div>
-                <input type="number" placeholder="Inserisci anno" [(ngModel)]="filmService.selectedFilm.releaseYear">
-            </div>
+        <div class="form">
+            <h5><label>Cast</label></h5>
+            <select [(ngModel)]="filmService.selectedFilm.cast" multiple>
+                <option *ngFor="let actor of actors" [value]="actor">{{ actor.firstname }} {{actor.lastname}} </option>
+            </select>
         </div>
-        <div class="input">
-            <label>Cast</label>
-            <div>   
-                <select [(ngModel)]="filmService.selectedFilm.cast" multiple>
-                    <option *ngFor="let actor of actors" [value]="actor">{{ actor.firstname }} {{actor.lastname}} </option>
-                </select>
-            </div>
+        <div class="form">
+            <h5><label>Genere</label></h5>
+            <select [(ngModel)]="filmService.selectedFilm.genres" multiple>
+                <option *ngFor="let genre of genres" [value]="genre">{{ genre.name }} </option>
+            </select> 
         </div>
-        <div class="input">
-            <label>Genere</label>
-            <div>
-                <select [(ngModel)]="filmService.selectedFilm.genres" multiple>
-                    <option *ngFor="let genre of genres" [value]="genre">{{ genre.name }} </option>
-                </select>
-            </div>   
+        <div class="form">
+            <h5><label>Cover url</label></h5>
+            <input type="text" placeholder="Cover url" [(ngModel)]="filmService.selectedFilm.coverUrl">
         </div>
-        <div class="input">
-            <label>Tags</label>
-            <div>
-                <input type="text" placeholder="Inserisci tags" [(ngModel)]="filmService.selectedFilm.tags">
-            </div>
+        <div class="form">
+            <h5><label>Tags</label></h5>
+            <input type="text" placeholder="Inserisci tags" [(ngModel)]="filmService.selectedFilm.tags">
         </div>
-        <div>
-        <button (click)="filmService.editFilm()" routerLink="/films">Modifica</button>
+        <div class="form">
+        <button class="btn" (click)="filmService.editFilm()" routerLink="/films">Modifica</button>
         </div>
     </div>
 </div>
