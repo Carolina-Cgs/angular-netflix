@@ -15,7 +15,7 @@ import { faEdit, faTrashAlt, faPlusCircle} from '@fortawesome/free-solid-svg-ico
 export class FilmsComponent implements OnInit {
   faEdit = faEdit;
   faTrashAlt = faTrashAlt;
-  faPlusCircle = faPlusCircle;
+  faPlusCircle = faPlusCircle; 
 
   films: Film[];
   timeout;

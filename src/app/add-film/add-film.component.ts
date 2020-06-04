@@ -20,7 +20,7 @@ export class AddFilmComponent implements OnInit {
     private genreService: GenreService
     ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.actorService.getActors().subscribe(result => this.actors = result);
     this.genreService.getGenres().subscribe(response => this.genres = response);
   }

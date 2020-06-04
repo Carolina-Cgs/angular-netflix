@@ -15,7 +15,7 @@ export class EditFilmComponent implements OnInit {
   genres: Genre[];
 
   constructor(
-    public filmService:FilmService,
+    public filmService: FilmService,
     private actorService: ActorService,
     private genreService: GenreService
     ) { }

@@ -7,6 +7,15 @@ h3{text-align: center;
     margin-bottom: 20px;
 }
 
+.btn{color: #000;
+    border-color: #000;
+    background-color: transparent;
+    float: right;
+    padding: 4px;
+   }
+.btn:hover{color: red;
+    background-color: #000;}
+
 h5, h6, p{text-align: center;}
 
 .card-body h5, h6 {font-family: fantasy;}

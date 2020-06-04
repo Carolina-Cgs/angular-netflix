@@ -1,10 +1,11 @@
 <div class="container">
 
-    <input type="text" placeholder="Cerca" (input)="search($event)">
-
+    <input type="text" placeholder="Cerca film" (input)="search($event)">
+    <button type="button" class="btn" routerLink="/films/add">Aggiungi film</button>
     <div>
         <h3>Films disponibili</h3>
     </div>
+    
     <div class="row row-cols-1 row-cols-md-4">
         <div *ngFor="let film of films" class="col mb-3">
             <div class="card h-100">
