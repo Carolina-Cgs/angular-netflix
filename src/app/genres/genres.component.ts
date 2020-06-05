@@ -38,7 +38,7 @@ export class GenresComponent implements OnInit {
     this.timeout = setTimeout(function() {
       if(test.length > 2) {
         scope.genreService.getGenres().subscribe((genres) => scope.genres = genres.filter(
-          x =>x.name.toLowerCase().indexOf(test.toLowerCase()) > -1));
+          x => x.name.toLowerCase().indexOf(test.toLowerCase()) > -1));
       } else {
         scope.genreService.getGenres().subscribe((genres) => scope.genres = genres);
       }

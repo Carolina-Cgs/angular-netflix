@@ -1,5 +1,4 @@
-.container {background-color: #ececec; border-radius: 4px; padding-top:90px; color: #000;
-}
+.container {background-color: #ececec; border-radius: 4px; padding-top:90px; color: #000;}
 
 .div-top{display: flow-root;}
 
@@ -16,6 +15,18 @@ h3{text-align: center;
     padding: 4px;
     }
 .btn:hover{color: red;
-    background-color: #000;}
+    background-color: #171717;}
 
-.card-header{cursor: pointer;}
+.card-header{text-align: center;
+    cursor: pointer;
+    box-shadow: -1px 1px 4px 0px #79040491;}
+
+.card-dropdown{padding-bottom: 2px;}
+
+h6{text-align: center;
+    font-weight: bold;
+    color: #800000;}
+
+ul{padding: 0;}
+
+
