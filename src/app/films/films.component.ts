@@ -51,7 +51,8 @@ export class FilmsComponent implements OnInit {
     let scope=this;
     this.timeout = setTimeout(function() {
       if(test.length > 2) {
-        scope.filmService.getFilms().subscribe((films) => scope.films = films.filter(x =>x.title.toLowerCase().indexOf(test.toLowerCase()) > -1));
+        scope.filmService.getFilms().subscribe((films) => scope.films = films.filter(
+          x =>x.title.toLowerCase().indexOf(test.toLowerCase()) > -1));
       } else {
         scope.filmService.getFilms().subscribe((films) => scope.films = films);
       }
@@ -60,5 +61,10 @@ export class FilmsComponent implements OnInit {
 
   setVote(film: Film, vote: number) {
     film.stars=vote;
+  }
+
+ remove (film: Film): void {
+    //this.filmService.removeFilm(film).subscribe(() => setTimeout(() =>this.ngOnInit(), 2000));
+    this.filmService.removeFilm(film).subscribe(() => this.ngOnInit());
   }
 }

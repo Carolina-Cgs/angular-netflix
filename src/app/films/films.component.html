@@ -11,7 +11,7 @@
         <div *ngFor="let film of films" class="col mb-3">
             <div class="card h-100">
                 <div class="icons"><fa-icon [icon]="faEdit" class="icon-edit" data-toggle="tooltip" title="Modifica" (click)="selectThisFilm(film)"></fa-icon>
-                                   <fa-icon [icon]="faTrashAlt" class="icon-trash" data-toggle="tooltip" title="Elimina"></fa-icon>
+                                   <fa-icon [icon]="faTrashAlt" class="icon-trash" data-toggle="tooltip" title="Elimina" (click)="remove(film)"></fa-icon>
                 </div>
                 <div class="img-container" [ngStyle]="{'background-image': 'url(' + (film.coverUrl || 'https://permobil.com.au/wp-content/uploads/2017/08/no-image-placeholder-2.jpg') + ')'}"> </div>
                 <div class="card-body card-visible">

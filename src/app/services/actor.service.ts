@@ -6,12 +6,10 @@ import { of, Observable} from 'rxjs';
 import { HttpClient,  HttpHeaders } from '@angular/common/http';
 import { UserService } from './user.service';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
-export class ActorService {
+export class ActorService { 
   actors: Actor[];
   selectedActor: Actor;
   newActor: Actor = {
@@ -49,7 +47,6 @@ export class ActorService {
       })
     };
     this.newActor.created_by = this.userService.loggedUser.id;
-    debugger
      this.http.post<Actor[]>(
        'http://netflix.cristiancarrino.com/actor/create.php',
        this.newActor,

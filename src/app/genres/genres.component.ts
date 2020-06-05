@@ -10,6 +10,7 @@ import { FilmService } from '../services/film.service';
 })
 export class GenresComponent implements OnInit {
   genres: Genre[];
+  timeout;
 
   constructor(private genreService: GenreService, private filmService: FilmService) { }
 
@@ -27,4 +28,20 @@ export class GenresComponent implements OnInit {
     })
   }
 
+  search(event) {
+    let test = event.target.value;
+    if(this.timeout) {
+      clearTimeout(this.timeout);
+    }
+
+    let scope=this;
+    this.timeout = setTimeout(function() {
+      if(test.length > 2) {
+        scope.genreService.getGenres().subscribe((genres) => scope.genres = genres.filter(
+          x =>x.name.toLowerCase().indexOf(test.toLowerCase()) > -1));
+      } else {
+        scope.genreService.getGenres().subscribe((genres) => scope.genres = genres);
+      }
+    }, 300);
+  }
 }

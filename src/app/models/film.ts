@@ -14,5 +14,5 @@ export interface Film {
     tags: string;
     coverUrl: string;
     created_by: number;
-
+    plot?: string;
 }

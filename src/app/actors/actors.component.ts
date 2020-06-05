@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Actor } from '../models/actor';
 import { ActorService } from '../services/actor.service';
 import { FilmService } from '../services/film.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-actors',
@@ -12,7 +13,9 @@ export class ActorsComponent implements OnInit {
   actors: Actor[];
   timeout;
 
-  constructor(private actorService: ActorService, private filmService: FilmService) { }
+  constructor(private actorService: ActorService,
+    private filmService: FilmService,
+    private router: Router) { }
 
   ngOnInit(): void { 
     this.actorService.getActors().subscribe(response => {
@@ -25,22 +28,26 @@ export class ActorsComponent implements OnInit {
         return actor;
       });  
     })
+  }
 
-   /*  search(event) {
-      let test = event.target.value;
-      if(this.timeout) {
-        clearTimeout(this.timeout);
+  search(event) {
+    let test = event.target.value;
+    if(this.timeout) {
+      clearTimeout(this.timeout);
+    }
+
+    let scope=this;
+    this.timeout = setTimeout(function() {
+      if(test.length > 2) {
+        scope.actorService.getActors().subscribe((actors) => scope.actors = actors.filter(
+          x => {
+            const nameAndSurname = x.firstname.toLowerCase() + x.lastname.toLowerCase();
+            return nameAndSurname.indexOf(test.toLowerCase()) > -1
+          }
+        ));
+      } else {
+        scope.actorService.getActors().subscribe((actors) => scope.actors = actors);
       }
-  
-      let scope=this;
-      this.timeout = setTimeout(function() {
-        if(test.length > 2) {
-          scope.actorService.getActors().subscribe((actors) => scope.actors = actors.filter(x =>x.firstname.toLowerCase().indexOf(test.toLowerCase()) > -1));
-        } else {
-          scope.actorService.getActors().subscribe((actors) => scope.actors = actors);
-        }
-      }, 300);
-    } */
-
+    }, 300);
   }
 }
