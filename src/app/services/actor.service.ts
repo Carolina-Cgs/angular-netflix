@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { Actor } from '../models/actor';
 import { ACTORS } from './mockActors';
 import {LocalStorageService, SessionStorageService} from 'ngx-webstorage';
-import { of, Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { of, Observable} from 'rxjs';
+import { HttpClient,  HttpHeaders } from '@angular/common/http';
+import { UserService } from './user.service';
 
 
 
@@ -16,9 +17,12 @@ export class ActorService {
   newActor: Actor = {
     firstname: '',
     lastname: '',
+    created_by: 0
   }
 
-  constructor(private http: HttpClient, private localStorage:LocalStorageService) { }
+  constructor(private http: HttpClient,
+    private localStorage:LocalStorageService,
+    private userService: UserService) { }
 
   getActors(): Observable<Actor[]> {
     if (this.actors) {
@@ -32,12 +36,31 @@ export class ActorService {
     }
   }
 
-  addActor(actor: Actor) {
-    this.actors.push(this.newActor);
-    this.localStorage.store('actors', this.actors);
+  addActor() {
+    if (!this.userService.loggedUser) {
+      alert('Errore: devi effettuare il login');
+      return;
+    }
+
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': this.userService.loggedUser.token
+      })
+    };
+    this.newActor.created_by = this.userService.loggedUser.id;
+    debugger
+     this.http.post<Actor[]>(
+       'http://netflix.cristiancarrino.com/actor/create.php',
+       this.newActor,
+       httpOptions).subscribe(response => {
+         this.getActors().subscribe(response =>
+          this.actors = response);
+     })
     this.newActor = {
       firstname: '',
       lastname: '',
+      created_by: 0
     }
   }
     

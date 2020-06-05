@@ -1,0 +1,23 @@
+.container {background-color: #ececec; border-radius: 4px; padding-top:90px; color: #000;}
+
+h3{text-align: center;
+    font-size: 40px;
+    font-variant: petite-caps;
+    text-shadow:4px -3px 4px #969696;
+    margin-bottom: 20px;
+}
+
+h5{font-variant: petite-caps;
+    margin-bottom: 0;}
+
+.form{padding-bottom: 20px;
+    text-align: center;}
+
+.form input, button{width: 40%;}
+
+.btn{color: #000;
+    border-color: #000;
+    background-color: transparent;
+   }
+.btn:hover{color: red;
+    background-color: #000;}

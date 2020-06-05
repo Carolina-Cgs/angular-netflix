@@ -14,7 +14,7 @@ export class ActorsComponent implements OnInit {
 
   constructor(private actorService: ActorService, private filmService: FilmService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.actorService.getActors().subscribe(response => {
       this.actors = response
     });

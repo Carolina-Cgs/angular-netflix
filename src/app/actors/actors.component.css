@@ -1,3 +1,20 @@
 .container {background-color: #ececec; border-radius: 4px; padding-top:90px; color: #000;}
 
+.div-top{display: flow-root;}
+
+h3{text-align: center;
+    font-size: 40px;
+    font-variant: petite-caps;
+    text-shadow:4px -3px 4px #969696;
+    margin-bottom: 20px;}
+
+.btn{color: #000;
+    border-color: #000;
+    background-color: transparent;
+    float: right;
+    padding: 4px;
+    }
+.btn:hover{color: red;
+    background-color: #000;}
+
 .card-header{cursor: pointer;}

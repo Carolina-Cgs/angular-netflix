@@ -3,20 +3,25 @@ import { Genre } from '../models/genre';
 import { GENRES } from './mockGenres';
 import { Observable, of } from 'rxjs';
 import {LocalStorageService, SessionStorageService} from 'ngx-webstorage';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,  HttpHeaders } from '@angular/common/http';
+import { UserService } from './user.service';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class GenreService {
-  genres: Genre[]; // copia del mock
+  genres: Genre[];
   selectedGenre: Genre;
   newGenre: Genre = {
-    name: ''
+    name: '',
+    created_by: 0
   }
 
-  constructor(private http: HttpClient, private localStorage: LocalStorageService) { }
+  constructor(private http: HttpClient,
+    private localStorage: LocalStorageService,
+    private userService: UserService) { }
 
   getGenres(): Observable<Genre[]> {
     if (this.genres) {
@@ -30,14 +35,32 @@ export class GenreService {
     }
   }
 
-  addGenre(genre: Genre) {
-    this.genres.push(this.newGenre);
-    this.localStorage.store('genres', this.genres);
+  addGenre() {
+    if (!this.userService.loggedUser) {
+      alert('Errore: devi effettuare il login');
+      return;
+    }
+
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': this.userService.loggedUser.token
+      })
+    };
+    this.newGenre.created_by = this.userService.loggedUser.id;
+     this.http.post<Genre[]>(
+       'http://netflix.cristiancarrino.com/actor/create.php',
+       this.newGenre,
+       httpOptions).subscribe(response => {
+         this.getGenres().subscribe(response =>
+          this.genres = response);
+     })
     this.newGenre = {
       name: '',
+      created_by: 0
     }
   }
-
+ 
   editGenre(): void {
     this.localStorage.store('genres', this.genres);
     this.selectedGenre = null;

@@ -1,1 +1,18 @@
-<p>add-actor works!</p>
+<div class="container">
+    <div>
+        <h3>Aggiungi attore</h3>
+    </div>
+    <div>
+        <div class="form">
+            <h5><label>Nome</label></h5>
+            <input type="text" placeholder="Inserisci Nome" [(ngModel)]="actorService.newActor.firstname">
+        </div>
+        <div class="form">
+            <h5><label>Cognome</label></h5>
+            <input type="text" placeholder="Inserisci Cognome" [(ngModel)]="actorService.newActor.lastname">
+        </div>
+        <div class="form">
+            <button class="btn" (click)="actorService.addActor()" routerLink="/actors">Aggiungi</button>
+        </div>
+    </div>
+</div>
