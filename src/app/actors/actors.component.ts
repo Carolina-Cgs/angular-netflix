@@ -10,6 +10,7 @@ import { FilmService } from '../services/film.service';
 })
 export class ActorsComponent implements OnInit { 
   actors: Actor[];
+  timeout;
 
   constructor(private actorService: ActorService, private filmService: FilmService) { }
 
@@ -24,5 +25,22 @@ export class ActorsComponent implements OnInit {
         return actor;
       });  
     })
+
+   /*  search(event) {
+      let test = event.target.value;
+      if(this.timeout) {
+        clearTimeout(this.timeout);
+      }
+  
+      let scope=this;
+      this.timeout = setTimeout(function() {
+        if(test.length > 2) {
+          scope.actorService.getActors().subscribe((actors) => scope.actors = actors.filter(x =>x.firstname.toLowerCase().indexOf(test.toLowerCase()) > -1));
+        } else {
+          scope.actorService.getActors().subscribe((actors) => scope.actors = actors);
+        }
+      }, 300);
+    } */
+
   }
 }

@@ -1,1 +1,20 @@
-<p>genres works!</p>
+<div class="container">
+    <!-- <input type="text" placeholder="Cerca attore" (input)="search($event)"> -->
+    <button type="button" class="btn" routerLink="/genres/add">Aggiungi genere</button>
+    <div>
+        <h3>Generi</h3>
+    </div>
+    <div class="row row-cols-1 row-cols-md-5">
+        <div *ngFor="let genre of genres" class="col mb-3">
+            <div class="card-header" (click)="genre.showMore=!genre.showMore">{{ genre.name }}</div>
+            <div *ngIf="genre.showMore" class="card-body card-dropdown">
+                <h6>Film</h6>
+                    <p *ngIf="!genre.films.length">-</p>
+                    <ul *ngIf="genre.films.length">
+                        <li *ngFor="let film of genre.films">{{ film.title }}</li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+
+</div>

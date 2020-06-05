@@ -61,6 +61,4 @@ export class FilmsComponent implements OnInit {
   setVote(film: Film, vote: number) {
     film.stars=vote;
   }
-
-
 }
