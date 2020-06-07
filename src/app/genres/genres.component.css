@@ -12,8 +12,8 @@ h3{text-align: center;
     border-color: #000;
     background-color: transparent;
     float: right;
-    padding: 4px;
-    }
+    padding: 4px;}
+
 .btn:hover{color: red;
     background-color: #171717;}
 
@@ -28,5 +28,3 @@ h6{text-align: center;
     color: #800000;}
 
 ul{padding: 0;}
-
-

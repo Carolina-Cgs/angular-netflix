@@ -4,8 +4,7 @@ h3{text-align: center;
     font-size: 40px;
     font-variant: petite-caps;
     text-shadow:4px -3px 4px #969696;
-    margin-bottom: 20px;
-}
+    margin-bottom: 20px;}
 
 h5{font-variant: petite-caps;
     margin-bottom: 0;}
@@ -17,7 +16,7 @@ h5{font-variant: petite-caps;
 
 .btn{color: #000;
     border-color: #000;
-    background-color: transparent;
-   }
+    background-color: transparent;}
+
 .btn:hover{color: red;
     background-color: #171717;}

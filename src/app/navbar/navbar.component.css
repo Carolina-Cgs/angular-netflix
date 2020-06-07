@@ -5,8 +5,7 @@
 	margin: 0 auto;
 	position: fixed;
 	box-shadow: 0px 4px 20px 1px #520000;
-    z-index: 100;
-}
+    z-index: 100;}
 
 
 .title{display: inline-block;
@@ -14,15 +13,13 @@
 padding-left: 16px;}
 
 .title h1{color: red;
-	text-shadow: 6px 0px 12px #ff0404;
-}
+	text-shadow: 6px 0px 12px #ff0404;}
 
 .log{float: right;
 	color: #fff;
 	text-align: center;
 	padding-right: 30px;
-	padding-top: 14px;
-	}
+	padding-top: 14px;}
 
 .div-login {display: unset;}
 
@@ -84,7 +81,6 @@ padding-left: 16px;}
 
 .b{display: block;}
 .n{display: none;}
-
 
 
 /* RESPONSIVE */

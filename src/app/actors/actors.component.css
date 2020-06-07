@@ -12,23 +12,16 @@ h3{text-align: center;
     border-color: #000;
     background-color: transparent;
     float: right;
-    padding: 4px;
-    }
+    padding: 4px;}
+    
 .btn:hover{color: red;
     background-color: #171717;}
 
 .card-header{text-align: center;
     cursor: pointer;
-    box-shadow: -1px 1px 4px 0px #79040491;
-    /* background-color: #e6dddd;
-    color: #5a2a2a;
-     -2px 2px 6px 0px #736565; */
-    }
+    box-shadow: -1px 1px 4px 0px #79040491;}
 
-.card-dropdown{padding-bottom: 2px;
-    /* box-shadow: -2px 2px 6px 0px #736565;
-    background-color: #e6dddd; */
-}
+.card-dropdown{padding-bottom: 2px;}
 
 h6{text-align: center;
     font-weight: bold;

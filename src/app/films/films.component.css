@@ -6,20 +6,31 @@ h3{text-align: center;
     font-size: 40px;
     font-variant: petite-caps;
     text-shadow:4px -3px 4px #969696;
-    margin-bottom: 20px;
-}
+    margin-bottom: 20px;}
 
 .btn{color: #000;
     border-color: #000;
     background-color: transparent;
     float: right;
-    padding: 4px;
-   }
+    padding: 4px;}
+    
 .btn:hover{color: red;
     background-color: #171717;}
 
 h5, h6, p{text-align: center;}
 
+.h-100{box-shadow: -6px 9px 15px 0px #888;}
+
+.img-container {position: relative;
+    padding-bottom: 150%;
+    background-position: center center;
+    background-size: cover;}
+
+.img-container img {position: absolute;
+    top: 0;
+    left: 0;}
+
+.card-body{padding: 10px 5px 2px;}
 .card-body h5, h6 {font-family: fantasy;}
 .card-body h6{color: #800000}
 .card-body p{color: #2f4f4f}
@@ -29,38 +40,32 @@ h5, h6, p{text-align: center;}
     text-align: center;
     color: #777;}
 
-.h-100{box-shadow: -6px 9px 15px 0px #888;}
+.card-dropdown{padding-top: 0; padding-bottom: 0;}
 
-.card-dropdown{padding-top: 0;}
-
-.img-container {    
-    position: relative;
-    padding-bottom: 150%;
-    background-position: center center;
-    background-size: cover;
-}
-
-.img-container img {
-    position: absolute;
-    top: 0;
-    left: 0;}
+.moreInfo h6, p{text-align: unset;}
+.moreInfo p{margin-bottom: 8px;}
+.moreInfo h6{font-family: inherit;
+    font-weight: bold;
+    color: #423f75;
+    margin-bottom: 2px;}
 
 .icons{background-color: #ececec;}
-.btn-icon-plus{text-align: center;}
 
-.ng-fa-icon{padding: 0 4px;}
-.ng-fa-icon:hover{color: red; background-color: #000; padding: 0 4px;}
+.ng-fa-icon{padding: 0 4px;
+    color: #171717cc}
+.ng-fa-icon:hover{color: red;
+    background-color: #171717;
+    padding: 0 4px;}
+
 .icon-trash{float: right;}
 .icon-edit:hover{padding: 4px 4px;}
-.icon-plus{font-size: 24px; color: #20b2aa;}
+.icon-plus{font-size: 24px;
+    color: #20b2aa;
+    cursor: pointer;}
+
 .icon-plus:hover{background-color: transparent;
     color: #547371;
     border-radius: 20px;
     padding: 8px;
 }
-
-.moreInfo h6, p{text-align: unset;}
-   
-.moreInfo h6{font-family: inherit;
-    font-weight: bold;
-    color: #423f75;}
+.btn-icon-plus{text-align: center;}
